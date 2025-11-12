@@ -9,7 +9,6 @@ To design and simulate a distance measurement system using an ultrasonic sensor 
 3.	Jumper Wires
 4.	USB Cable (for simulation purpose in Tinkercad)
 
-   
 ## Theory:
 
 The ultrasonic distance sensor (HC-SR04) is a widely used electronic component for non-contact distance measurement. It operates on the principle of echo-ranging, where it emits an ultrasonic pulse and listens for its reflection from an object. The time taken for the echo to return is directly proportional to the distance of the object from the sensor. This sensor has two main pins—Trigger and Echo. The Trigger pin is used to send a short pulse (usually 10 microseconds), and the Echo pin receives the reflected signal. The Arduino microcontroller calculates the time interval between sending and receiving the ultrasonic pulse and converts it into distance using a specific formula. 
@@ -34,7 +33,6 @@ o	VCC Pin: Connect to 5V pin on the Arduino.
 o	GND Pin: Connect to GND on the Arduino.
 o	Trig Pin: Connect to Digital Pin 3 on the Arduino.
 o	Echo Pin: Connect to Digital Pin 2 on the Arduino.
-
 7.	Wire Connections:
 o	Use the color-coded jumper wires (e.g., red for VCC, black for GND, green for Trig, and blue for Echo) to make it easier to identify connections.
 Step 4: Write the Arduino Code
@@ -50,6 +48,7 @@ Step 7: Save Your Work
 15.	Save Circuit: Click “Save” to store your design and code for future use or presentation.
 
 ## Code:
+```
 #define echoPin 2
 #define trigPin 3
 long duration;
@@ -73,13 +72,11 @@ void loop()
   Serial.print(distance);
   Serial.println(" cm");
 }
-
+```
 ## Output:
  
 <img width="770" height="559" alt="image" src="https://github.com/user-attachments/assets/6e2c51e6-8226-4dd9-8f99-566a417281b6" />
 
-## Result
-
-
 Result:
+
 The simulation successfully measured the distance between the ultrasonic sensor  HC-SR04 and the object. The real-time distance values were accurately displayed on the serial monitor in centimeters.
