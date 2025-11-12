@@ -16,11 +16,10 @@ The ultrasonic distance sensor (HC-SR04) is a widely used electronic component f
 The speed of sound in air is approximately 343 meters per second (or 0.034 cm per microsecond). Since the sound travels to the object and back, the measured time is divided by 2. The formula used is: distance = (duration × 0.034) / 2. The sensor is highly suitable for robotics, object detection, and security systems where accurate distance measurement is crucial. The Arduino Uno serves as the brain of this project and controls the sensor, processes the pulse duration, and outputs the result via the serial monitor. 
 Tinkercad provides a simulation environment where this circuit can be virtually built, connected, and tested. Through this setup, users can analyze how the sensor interacts with different distances, and visualize its output in real-time without requiring physical components. This setup not only helps in understanding sensor interfacing but also enhances coding skills through implementation in the Arduino IDE. It is an ideal beginner project for learning microcontroller and sensor interfacing.
 
-
-
 ## Circuit Diagram:
- 
-## Procedure: //Modify the procedure based on your circuit
+ <img width="699" height="368" alt="image" src="https://github.com/user-attachments/assets/1813948f-d0f9-48ee-b1ba-fca7c05a9944" />
+
+## Procedure: 
 
 Step 1: Set Up the Tinkercad Environment
 1.	Log in to Tinkercad: Open Tinkercad in your web browser and log into your account.
@@ -36,7 +35,6 @@ o	GND Pin: Connect to GND on the Arduino.
 o	Trig Pin: Connect to Digital Pin 3 on the Arduino.
 o	Echo Pin: Connect to Digital Pin 2 on the Arduino.
 
-
 7.	Wire Connections:
 o	Use the color-coded jumper wires (e.g., red for VCC, black for GND, green for Trig, and blue for Echo) to make it easier to identify connections.
 Step 4: Write the Arduino Code
@@ -51,13 +49,34 @@ Step 7: Save Your Work
 14.	Stop Simulation: Click the “Stop Simulation” button to end the test.
 15.	Save Circuit: Click “Save” to store your design and code for future use or presentation.
 
-
 ## Code:
-
+#define echoPin 2
+#define trigPin 3
+long duration;
+int distance;
+void setup()
+{
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+}
 
 ## Output:
  
-
+<img width="770" height="559" alt="image" src="https://github.com/user-attachments/assets/6e2c51e6-8226-4dd9-8f99-566a417281b6" />
 
 ## Result
 
